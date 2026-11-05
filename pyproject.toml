@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neurips2026-kvpress-vendored"
+version = "0.0.0"
+description = "NeurIPS 2026 vendored kvpress package for evaluation."
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "Apache-2.0"}
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["kvpress*"]

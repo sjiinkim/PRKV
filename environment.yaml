@@ -1,0 +1,45 @@
+name: kvpress
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.12
+  - pytorch=2.5.1
+  - pytorch-cuda=12.4
+  - numpy
+  - pandas
+  - scipy
+  - networkx
+  - mpmath
+  - gmpy2
+  - filelock
+  - pyyaml
+  - setuptools
+  - wheel
+  - ca-certificates
+  - openssl
+  - typing_extensions
+  - pip
+  - pip:
+      # HF / training stack
+      - accelerate==1.10.1
+      - datasets==2.21.0
+      - einops==0.8.1
+      - fire
+      - flash-attn==2.6.3
+      - huggingface-hub==0.35.3
+      - safetensors==0.6.2
+      - sentencepiece==0.2.1
+      - tokenizers==0.22.1
+      - transformers==4.57.0
+      - tqdm==4.67.1
+      - xxhash==3.6.0
+      - bert-score==0.3.13
+      - rouge==1.0.1
+      - jieba
+      - fuzzywuzzy
+      # Install vendored kvpress
+      - -e .
