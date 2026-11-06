@@ -27,14 +27,6 @@ TransitionMode = Literal["global_coattn", "nodes_attention"]
 
 
 def align_rope_to_hidden_states(module: nn.Module, hidden_states: torch.Tensor, kwargs: dict) -> dict:
-    """
-    Make kwargs["position_embeddings"] cover every row of `hidden_states`.
-
-    Under DecodingPress, `hidden_states` is a buffer of the last L decoding tokens, while `kwargs` comes from the
-    current step and covers only the current token. RoPE is recomputed at the buffered tokens' own positions, which
-    are consecutive and end at the current absolute position in `position_ids`. `cache_position` cannot be used
-    because it is relative to the compressed cache.
-    """
     pe = kwargs.get("position_embeddings")
     if pe is None:
         return kwargs
